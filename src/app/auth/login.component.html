@@ -1,0 +1,28 @@
+
+<div class="bg">
+  <div class="card-body">
+    <div class="col-md-12 col-lg-5 col-xl-4 offset-xl-1" style="background-color: rgb(255 255 255);">
+      <div class="card-body col-xl-10 offset-xl-1 ">
+        <img class="rounded mx-auto d-block" src="../../assets/img/Captura_adobespark (3).png" alt="..." />
+        <form (ngSubmit)="onLogin()" [formGroup]="Login">
+          <a href="#!" class="link-dark" style="float: right;">Recuperar cuenta</a>
+
+          <div class="form-outline mb-3">
+              <input class="form-control form-control-lg" type="email" name="mail" id="mail" placeholder="Email" formControlName="email">
+          </div>
+
+          <div class="form-outline mb-3">
+              <input class="form-control form-control-lg" type="password" name="pass" id="pass" placeholder="Contraseña" formControlName="password">
+          </div>
+          <p class="text-center"><a href="/register" class="link-dark">Registrarme</a></p>
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <div class="d-grid gap-2">
+              <button type="submit" [disabled]="Login.invalid" class="btn btn btn-dark btn-block">
+                <i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

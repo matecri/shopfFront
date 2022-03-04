@@ -1,0 +1,13 @@
+<div  style="float: right;">
+    <button mat-button class="close-icon" (click)="close()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<div class="col-10 container px-4 px-lg-5 ">
+    <form (ngSubmit)="save()" [formGroup]="update">
+    <label for="brand">cantidad:</label>
+    <input type="text" class="form-control" id="cantidad" name="cantidad" formControlName="amount" required>
+    <button  class="btn btn-outline-dark mt-auto">
+        <i class="fa fa-arrow-right col-12" >actualizar</i></button>
+    </form> 
+</div>

@@ -1,0 +1,20 @@
+<div class="card-body col-xl-10 offset-xl-1 ">
+    <form (ngSubmit)="onsave()" [formGroup]="buyform">
+        <div class="form-outline mb-3">
+            <input class="form-control form-control-lg" type="text" name="address" id="address" placeholder="Direccion" formControlName="address">
+        </div>
+        <div class="form-outline mb-3">
+            <input class="form-control form-control-lg" type="text" name="city" id="city" placeholder="Ciudad" formControlName="city">
+        </div>
+        <div class="form-outline mb-3">
+            <input class="form-control form-control-lg" type="text" name="Cpostal" id="Cpostal" placeholder="Codigo postal" formControlName="Cpostal">
+        </div>
+        <div class="form-outline mb-3">
+            <input class="form-control form-control-lg" type="number" name="phonenumber" id="phonenumber" placeholder="Numero de telefono" formControlName="phonenumber">
+        </div>
+        <div class="d-grid gap-2">
+            <button type="submit"  class="btn btn btn-dark btn-block" [disabled]="buyform.invalid">
+              <i class="fas fa-sign-in-alt" ></i>Enviar</button>
+          </div>
+    </form>
+</div>

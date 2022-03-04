@@ -1,0 +1,32 @@
+.box {
+    margin-top: 4em;
+}
+.example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+}
+body, html {
+  height: 100%;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("../../assets/img/Captura.png");
+
+  /* Full height */
+ 
+  height: 100%;
+  /* Center and scale the image nicely */
+
+  background-size: cover;
+  background-repeat: round;
+  
+} 
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}

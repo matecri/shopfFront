@@ -1,0 +1,63 @@
+<div class="bg">
+    <div class="col-md-12 col-lg-8 col-xl-6 offset-xl-1" style="background-color: rgb(255 255 255);">
+        <div class="card-body col-xl-10 offset-xl-1 ">
+            <a href="/">
+            <img class="rounded mx-auto d-block" src="../../assets/img/Captura_adobespark (3).png" alt="..." />
+            </a>
+            <form (ngSubmit)="onRegister()" [formGroup]="register">
+                <div class="row">
+                    <div class="col-6 form-outline mb-3">
+                        <input class="form-control form-control-lg" type="text" placeholder="nombre"
+                            formControlName="name">
+                            <p *ngIf="submitted && f.name.errors" class="text-danger">el nombre es obligatorio*</p>
+                    </div>
+                    <div class="col-6 form-outline mb-3">
+                        <input class="form-control form-control-lg" type="text" placeholder="apellido"
+                            formControlName="lastname">
+                            <p *ngIf="submitted && f.lastname.errors" class="text-danger">el apellido es obligatorio*</p>
+                    </div>
+                    <div class="col-6 form-outline mb-3">
+                        <input class="form-control form-control-lg" type="email" name="mail" id="mail"
+                            placeholder="Email" formControlName="email">
+                            <p *ngIf="submitted && f.email.errors" class="text-danger">correo invalido*</p>
+                    </div>
+                    <div class="col-6 form-outline mb-3">
+                        <input class="form-control form-control-lg" type="address" name="address" id="address"
+                            placeholder="Direccion" formControlName="address">
+                            <p *ngIf="submitted && f.address.errors" class="text-danger">la direccion es obligatorio*</p>
+                    </div>
+                    <div class="col-6 form-outline mb-3">
+                        <input class="form-control form-control-lg" type="password" name="pass" id="pass"
+                            placeholder="Contraseña" formControlName="password">
+                        <p *ngIf="submitted && f.password.errors" class="text-danger">la contraseña es obligatorio*</p>
+                    </div>
+                    <div class="col-6 form-outline mb-3">
+                        <input class="form-control form-control-lg" type="password" name="pass" id="pass"
+                            placeholder="repita la Contraseña" formControlName="repeatpassword">
+                            <p *ngIf="!passequals" class="text-danger">las contraseña no coinciden*</p>
+                    </div>
+                    <div class="col-6 form-outline mb-3">
+                        <select class="form-select form-select-lg mb-3" name="" id="" formControlName="typedocument">
+                            <option value="">Tipo de documento</option>
+                            <option value="TI">T.i</option>
+                            <option value="CC">CC</option>
+                        </select>
+                        <p *ngIf="submitted && f.typedocument.errors" class="text-danger">seleccione un tipo de documento*</p>
+                    </div>
+                    <div class="col-6 form-outline mb-3">
+                        <input class="form-control form-control-lg" type="number" placeholder="N° de documento"
+                            formControlName="document">
+                            <p *ngIf="submitted && f.document.errors" class="text-danger">el documento es obligatorio*</p>
+                    </div>
+                    <p class="text-center"><a href="/login" class="link-dark">Iniciar seccion</a></p>
+                    <div class="text-center text-lg-start mt-2 pt-2">
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn btn-dark btn-block">
+                                <i class="fas fa-sign-in-alt"></i>registrarse</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

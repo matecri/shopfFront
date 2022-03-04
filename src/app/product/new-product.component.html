@@ -1,0 +1,30 @@
+<div class="" style="float: right;">
+    <button mat-button class="close-icon" (click)="close()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<div class="container px-4 px-lg-5 mt-5">
+    <div class="col-12 te-center">
+        <form (ngSubmit)="createProduct()" [formGroup]="NewProduct">
+            <label for="img">Imagen:</label>
+            <input type="text" class="form-control" id="img" name="img" formControlName="img" required>
+            <label for="titulo">Titulo:</label>
+            <input type="text" class="form-control" id="titulo" name="titulo" formControlName="titulo" required>
+            <label for="brand">Marca:</label>
+            <input type="text" class="form-control" id="brand" name="brand" formControlName="brand" required>
+            <label for="price">Color:</label>
+            <input type="text" class="form-control" id="color" name="color" formControlName="color">
+            <label for="descrip">Descripcion:</label>
+            <textarea class="form-control" id="descrip" name="descrip" formControlName="descrip" ></textarea>
+            <label for="price">Precio:</label>
+            <input type="text" class="form-control" id="price" name="price" formControlName="price">
+            <label for="typeSelect"><b>Genero:</b></label>
+                    <select class="form-control" name="typeSelect" id="typeSelect" formControlName="type">
+                        <option [ngValue]="null">Genero</option>
+                        <option [ngValue]="type.idType" *ngFor="let type of types">{{type.name}}</option>
+                    </select>
+            <button  class="btn btn-outline-dark mt-auto">
+                <i class="fa fa-arrow-right col-12" >actualizar</i></button>
+        </form>
+    </div>
+</div>

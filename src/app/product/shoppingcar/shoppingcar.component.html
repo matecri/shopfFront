@@ -1,0 +1,46 @@
+<app-menu></app-menu>
+<div class="text-center" *ngIf="0>=total">
+  <h4>Carrito vacío, añada productos al carrito de la compra pulsando en comprar para poder ver el presupuesto y detalle de su pedido</h4>
+  <img class="" src="https://pizzeriacasadecampo.com/static/images/cart/empty_cart.png" alt="..." />
+</div>
+<div class="row container" *ngIf="total>0">
+  <div class="col-10 container px-4 px-lg-5 mt-3">
+    <div class="col-12" *ngFor="let product of pruducts">
+      <div class="row border px-3 px-lg-3 mt-3">
+        <!-- Product image-->
+        <div class="col-4">
+          <!-- Product image-->
+          <img class="card-img-top h-100" src="{{product.productXSize.product.img}}" alt="..." />
+        </div>
+        <!-- Product details-->
+        <div class="col-4 mt-5">
+          <h3 class="fw-bolder text-capitalize">{{product.productXSize.product.titulo}} </h3>
+          <p class="text-uppercase">V/U: {{product.productXSize.product.price}} <br>
+            Talla: {{product.productXSize.size.name}} <br>
+            cantidad: {{product.amount}} <br>
+            total: {{ngtotal(product.productXSize.product.price,product.amount) | number: '3.0'}}COP
+          </p>
+          <!-- buttoms -->
+        </div>
+        <div class="col-2 mt-5">
+          <button class="btn btn-outline-dark mt-auto" (click)="openDialog(product.idshopping)"><i class=""></i>
+            Editar</button>
+
+          
+        </div>
+        <div class="col-2 mt-5">
+          <button class="btn btn-outline-danger" (click)="borrar(product.idshopping)"><i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="col-2 container mt-5">
+    <h1>total:</h1>
+    <h2>{{total}}</h2>
+    <button class="btn btn-outline-dark mt-auto" (click)="comprar()"><i class="fa fa-plane"> Finalizar
+        compra</i></button>
+  </div>
+
+</div>

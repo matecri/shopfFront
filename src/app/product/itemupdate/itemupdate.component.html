@@ -1,0 +1,25 @@
+
+    <div style="float: right;">
+        <button mat-button class="close-icon" (click)="close()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div class="row row-cols-md-2" *ngIf="product">
+        <div>
+            <!-- Product image-->
+            <img class="card-img-top h-75" src="{{product.productXSize.product.img}}" alt="..." />
+        </div>
+        <form (ngSubmit)="onAddcar()" [formGroup]="addshoping">
+            <h1 class="fw-bolder">{{product.productXSize.product.titulo}} -</h1>
+            <h3>{{product.productXSize.product.brand}}</h3>
+            <p>{{product.productXSize.product.descrip}}</p>
+            <label for="sizeSelect"><b>Talla:</b></label>
+           <p>{{product.productXSize.size.name}}</p>
+            <h5>V/U {{product.productXSize.product.price | number: '3.0' }} COP</h5>
+            <input type="number" name="amountbuy" id="amountbuy" min="1" max="{{product.productXSize.total_amount}}"
+            formControlName="amountbuy">/{{product.productXSize.total_amount}}
+             <br><br>
+            <button *ngIf="isLogged" [disabled]="addshoping.invalid" class="btn btn-outline-dark mt-auto">
+                <i class="fa fa-arrow-right col-12" >actualizar</i></button>
+        </form>
+    </div>

@@ -1,0 +1,34 @@
+<div  style="float: right;">
+    <button mat-button class="close-icon" (click)="close()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<div class="row px-4 px-lg-5 mt-5" *ngIf="product">
+    <div class="col-6">
+        <!-- Product image-->
+        <img class="card-img-top h-75" src="{{product.img}}" alt="..." />
+    </div>
+    <div class="col-6">
+        <form (ngSubmit)="edit()">
+            <label for="img">Imagen:</label>
+            <input type="text" class="form-control" id="img" name="img" [(ngModel)]="product.img" required>
+            <label for="titulo">Titulo:</label>
+            <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="product.titulo" required>
+            <label for="brand">Marca:</label>
+            <input type="text" class="form-control" id="brand" name="brand" [(ngModel)]="product.brand" required>
+            <label for="descrip">Descripcion:</label>
+            <textarea class="form-control" id="descrip" name="descrip" [(ngModel)]="product.descrip" ></textarea>
+            <label for="price">Precio:</label>
+            <input type="text" class="form-control" id="descrip" name="price" [(ngModel)]="product.price">
+            <label for="typeSelect"><b>Genero:</b></label>
+                    <select class="form-control" name="typeSelect" id="typeSelect" [(ngModel)]="product.type">
+                        <option [ngValue]="null">Todos</option>
+                        <option [ngValue]="type.idType" *ngFor="let type of types">{{type.name}}</option>
+                    </select>
+            <input type="checkbox" name="mostrar" value="1" [(ngModel)]="product.mostrar" checked>
+            <label for="mostrar">Mostrar item</label><br>
+            <button  class="btn btn-outline-dark mt-auto">
+                <i class="fa fa-arrow-right col-12" >actualizar</i></button>
+        </form>
+    </div>
+</div>

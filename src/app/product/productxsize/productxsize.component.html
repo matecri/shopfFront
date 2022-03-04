@@ -1,0 +1,47 @@
+<app-menu></app-menu>
+<div class="row container" *ngIf="product">
+    <div class="col-10 container px-4 px-lg-5 mt-3">
+      <div class="col-12" >
+        <div class="row border px-3 px-lg-3 mt-3">
+          <!-- Product image-->
+          <div class="col-4">
+            <!-- Product image-->
+            <img class="card-img-top h-100" src="{{product.img}}" alt="..." />
+          </div>
+          <!-- Product details-->
+          <div class="col-4 mt-5">
+            <h3 class="fw-bolder text-capitalize">{{product.titulo}} </h3>
+            <p class="text-uppercase">{{product.descrip}}<br>
+            </p>
+            <!-- buttoms -->
+          </div>
+      </div>
+      
+    </div>
+ </div>
+ <div class="col-10 container px-4 px-lg-5 ">
+    <div class="mt-4">
+        <button class="btn btn-outline-dark mt-auto" (click)="newSize()">
+            Añadir talla
+        </button> 
+     </div>
+     
+     <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Talla</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Editar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let productxsize of productsizes">
+            <th scope="row">{{productxsize.id}}</th>
+            <td>{{productxsize.size.name}}</td>
+            <td>{{productxsize.total_amount}}</td>
+            <td> <button type="button" class="btn btn-success" (click)="updatesize(productxsize.id)"><mat-icon>edit</mat-icon></button></td>
+          </tr>
+      </table>
+    </div>
+ </div>

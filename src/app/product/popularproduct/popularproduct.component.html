@@ -1,0 +1,38 @@
+<app-menu></app-menu>
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Estos son nuestros</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Productos mas buscados</p>
+        </div>
+    </div>
+</header>
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5" *ngFor="let product of products">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="h-50" src="{{product.img}}" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h3 class="fw-bolder text-capitalize">{{product.titulo}} - </h3>
+                            <h4 class="text-uppercase   ">{{product.brand}}</h4>
+                            <!-- Product price-->
+                            {{product.price | number: '3.0'}} COP
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><button class="btn btn-outline-dark mt-auto"
+                            (click)="openDialog(product.idProduct)"><i class="fa fa-eye"></i> Ver</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

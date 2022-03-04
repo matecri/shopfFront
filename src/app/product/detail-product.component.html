@@ -1,0 +1,33 @@
+
+    <div style="float: right;">
+        <button mat-button class="close-icon" (click)="close()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div class="row row-cols-md-2"*ngIf="product">
+        <div>
+            <!-- Product image-->
+            <img class="card-img-top h-75" src="{{product.img}}" alt="..." />
+        </div>
+        <form (ngSubmit)="onAddcar()" [formGroup]="addshoping">
+            <h1 class="fw-bolder">{{product.titulo}} -</h1>
+            <h3>{{product.brand}}</h3>
+            <p>{{product.descrip}}</p>
+            <label for="sizeSelect"><b>Talla:</b></label>
+            <select class="form-control" name="sizeSelect" id="sizeSelect" [(ngModel)]="sizeSelect"
+                formControlName="productxsizeb">
+                <option [ngValue]="null" selected>Talla</option>
+                <option [ngValue]="productxsize" *ngFor="let productxsize of productsizes">{{productxsize.size.name}}
+                </option>
+            </select>
+            <h5>V/U {{product.price | number: '3.0'}} COP</h5>
+            <div *ngIf="sizeSelect">
+                <input type="number" name="amountbuy" id="amountbuy" min="1" max="{{sizeSelect.total_amount}}"
+                    formControlName="amountbuy">/{{sizeSelect.total_amount}}
+            </div>
+            <button *ngIf="isLogged" [disabled]="addshoping.invalid" class="btn btn-outline-dark mt-auto">
+                <i class=""><mat-icon>add_shopping_cart</mat-icon> Agregar al carrito</i></button>
+            <button *ngIf="!isLogged" routerLink="/login" class="btn btn-outline-dark mt-auto" [mat-dialog-close]="true"><i
+                    class="fa fa-arrow-right col-12">añadir al carrito</i></button>
+        </form>
+    </div>
